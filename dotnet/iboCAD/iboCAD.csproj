@@ -1,0 +1,189 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D47EED82-18D7-456D-9A7D-2205CAEE07FC}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>iboCAD</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>iboCAD</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App.ico" />
+    <Compile Include="Araclar\Arac.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Araclar\Araclar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DegisiklikSiniflari\CizimDegisikligi.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DegisiklikSiniflari\IDegisiklik.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DegisiklikSiniflari\KatmanSilmeDegisikligi.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DegisiklikSiniflari\SekilSilmeDegisikligi.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DegisiklikSiniflari\TasimaDegisikligi.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Digersiniflar\CizimOlayi.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Digersiniflar\Katman.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Digersiniflar\TasimaOlayi.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Formlar\frmAna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formlar\frmCizim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formlar\frmHakkinda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formlar\frmKatmanOzellikleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formlar\frmSekilOzellikleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SekilSiniflari\Boyut.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SekilSiniflari\Cember.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SekilSiniflari\Dikdortgen.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SekilSiniflari\Dogru.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SekilSiniflari\Elips.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SekilSiniflari\Nokta.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SekilSiniflari\Sekil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Araclar\Araclar.resx">
+      <DependentUpon>Araclar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formlar\frmAna.resx">
+      <DependentUpon>frmAna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formlar\frmCizim.resx">
+      <DependentUpon>frmCizim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formlar\frmHakkinda.resx">
+      <DependentUpon>frmHakkinda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formlar\frmKatmanOzellikleri.resx">
+      <DependentUpon>frmKatmanOzellikleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formlar\frmSekilOzellikleri.resx">
+      <DependentUpon>frmSekilOzellikleri.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
