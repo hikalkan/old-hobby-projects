@@ -1,0 +1,11 @@
+Bu oyunda bilgisayar rastgele bir labirent olusturur.
+Amaç sað üst köþeye gitmektir...
+
+Tuþlar:
+
+W : Yukari
+A : Sola
+S : Asagi
+D : Saga
+
+Halil Ýbrahim Kalkan
