@@ -1,0 +1,841 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="tr">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1254">
+<title>Tablom Projesi</title>
+</head>
+
+<body bgcolor="#F4F4F4">
+
+<p align="center"><b><font color="#FF0000" size="5" face="Comic Sans MS">
+&quot;Tablom Projesi&quot;</font></b></p>
+<p align="justify" style="text-indent: 30"><b>
+<font face="Verdana" color="#0000FF"><u>1. Giriş</u>;</font></b></p>
+<p align="justify" style="text-indent: 30"><font face="Verdana" size="2">Asp.Net 
+ile kullanabileceğiniz birkaç tablo oluşturma bileşenleri var. Örneğin DataGrid 
+ve Table sınıfları bunlardan ikisi. Bunlarla hemen hemen her türlü tablo 
+oluşturabilirsiniz. Benim yaptığım &quot;Tablom&quot; ile de kolaylıkla çıktısı Html kodu 
+olan tablolar oluşturabilirsiniz. Bu sınıfın yapılmasının asıl amacı veri 
+tablosu oluşturmaktır. Her kolonu ve her satırı tek tek belirleyebileceğiniz 
+gibi, isterseniz doğrudan veritabanından aldığınız DataTable nesnesini &quot;Tablom&quot; 
+a bağlayarak hiçbir zahmete girmeden tabloyu oluşturabilirsiniz. İki şekilde de 
+veritabanından alınan verileri düzgün bir tablo halinde kullanıcıya kolayca 
+gösterebilirsiniz.</font></p>
+<p align="justify" style="text-indent: 30"><b>
+<font face="Verdana" color="#0000FF"><u>2. Sınıflar</u>;</font></b></p>
+<p align="justify" style="text-indent: 30"><font face="Verdana" size="2">
+&quot;Tablom&quot; 5 adet sınıftan oluşmaktadır. Bunlar Tablom, Kolonum, Satirim, Hucrem 
+ve TablomBicim olup aşağıda bütün sınıfların özellik ve yöntemleri (metodları) 
+verilmiştir. Çok fazla özellik var gibi gelebilir ancak bunların çoğunun 
+varsayılan değerleri olduğu için ayarlanmadan da tablo oluşturulabilir.</font></p>
+<div align="center">
+  <center>
+  <table border="0" cellpadding="2" cellspacing="2" style="border-collapse: collapse" bordercolor="#111111" width="80%" id="AutoNumber1">
+    <tr>
+      <td width="100%" colspan="2" valign="top" bgcolor="#FF0000">
+      <p align="center"><b><font face="Verdana" color="#FFFFFF">&quot;Tablom&quot; Sınıfı</font></b></td>
+    </tr>
+    <tr>
+      <td width="100%" colspan="2" valign="top" bgcolor="#EEF1FB">
+      <font face="Verdana" size="2">Bu sınıf esas tabloyu oluşturur. Diğer 
+      sınıflar bu tablonun özelliklerini ve içeriğini belirler ve sonuçta bu 
+      sınıfın yöntemleriyle dahil edilirler.</font></td>
+    </tr>
+    <tr>
+      <td width="50%" valign="top">
+      <table border="1" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2" bgcolor="#EEF1FB">
+        <tr>
+      <td width="50%" valign="top" align="justify" bgcolor="#EEF1FB">
+      <p align="center"><u><b><font face="Verdana" size="2" color="#0000FF">
+      Özellikleri</font></b></u></td>
+        </tr>
+        <tr>
+      <td width="50%" valign="top" align="justify" bgcolor="#EEF1FB">
+      <font face="Verdana" size="2"><b>Baslik</b>: Tablonun ana başlığı. 
+      (String)</font></td>
+        </tr>
+        <tr>
+      <td width="50%" valign="top" align="justify" bgcolor="#EEF1FB">
+      <font face="Verdana" size="2"><b>KolonSayisi</b>: Tablodaki kolon sayısını 
+      verir. (Sadece okunabilir, Sayısal)</font></td>
+        </tr>
+        <tr>
+      <td width="50%" valign="top" align="justify" bgcolor="#EEF1FB">
+      <font face="Verdana" size="2"><b>SatirSayisi</b>: Tablodaki satır sayısını 
+      verir. (Sadece okunabilir, Sayısal)</font></td>
+        </tr>
+        <tr>
+      <td width="50%" valign="top" align="justify" bgcolor="#EEF1FB">
+      <font face="Verdana" size="2"><b>Bicim</b>: Tablonun bicimi. Yani 
+      genişlik, yazı rengi, boyutu, arkaplan rengi gibi görünüş özellikleri. 
+      (TablomBicim sınıfından)</font></td>
+        </tr>
+        <tr>
+      <td width="50%" valign="top" align="justify" bgcolor="#EEF1FB">
+      <font face="Verdana" size="2"><b>HtmlKodu</b>: Tablonun html kodunu verir. 
+      Daha önce HtmlKoduUret yöntemi uygulanmış olmalıdır. (Sadece okunabilir)</font></td>
+        </tr>
+      </table>
+      </td>
+      <td width="50%" valign="top">
+      <table border="1" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber3" bgcolor="#EEF1FB">
+        <tr>
+          <td width="100%">
+      <p align="center"><u><b><font face="Verdana" size="2" color="#0000FF">
+      Yöntemleri</font></b></u></td>
+        </tr>
+        <tr>
+          <td width="100%" align="justify"><font face="Verdana"><b>
+          <font size="2">SatirEkle</font></b><font size="2">: Tabloya yeni bir 
+          satır ekler. Tanımı:<br>
+          <font color="#008000"><i>SatirEkle(YeniSatir as Satirim)</i></font><br>
+          YeniSatir, Satirim sınıfından bir örnektir.</font></font></td>
+        </tr>
+        <tr>
+          <td width="100%" align="justify"><font size="2" face="Verdana"><b>
+          KolonEkle</b>: Tabloya yeni bir kolon ekler. Tanımı:<br>
+          <font color="#008000"><i>KolonEkle(YeniKolon as Kolonum)</i></font><br>
+          YeniKolon, Kolonum sınıfından bir örnektir.</font></td>
+        </tr>
+        <tr>
+          <td width="100%" align="justify"><font face="Verdana" size="2"><b>
+          VeriTablosuAl</b>: Tablonun satır ve sütunlarını doğrudan bir 
+          DataTable nesnesinden almasını sağlar. Tanımı:<br>
+          <font color="#008000"><i>VeriTablosuAl(VT as DataTable, [VTBaslik as 
+          Boolean])</i></font><br>
+          VT veritabanından alınan verilerin bulunduğu bir DataTable nesnesidir. 
+          Eğer kolon başlıklarının veritabanındakiler ile aynı olmasını 
+          istiyorsanız VTBaslik yerine True yazın. False yazarsanız ya da 
+          hiçbirşey yazmazsanız bu yöntemi kullanmadan önce DataTable'daki her 
+          kolon için KolonEkle yöntemiyle bir kolon eklemelisiniz.</font></td>
+        </tr>
+        <tr>
+          <td width="100%" align="justify"><font face="Verdana" size="2"><b>
+          HtmlKoduUret</b>: Tüm işlemler bittikten sonra bu yöntemi kullanarak 
+          tablonun html kodunu üretebilirsiniz. Daha sonra bu kodu <i>HtmlKodu</i> 
+          özelliği ile elde edebilirsiniz. Tanımı:<br>
+          <i><font color="#008000">HtmlKoduUret()</font></i></font></td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%" bgcolor="#FF0000" valign="top" colspan="2">
+      <p align="center"><font face="Verdana" color="#FFFFFF"><b>&quot;Kolonum&quot; Sınıfı</b></font></td>
+    </tr>
+    <tr>
+      <td width="100%" valign="top" colspan="2" bgcolor="#EEF1FB">
+      <font size="2" face="Verdana">Bu sınıf ile tablonun kolonları ayarlanır ve 
+      sonuçta Tablom.KolonEkle yöntemiyle tabloya eklenir.</font></td>
+    </tr>
+    <tr>
+      <td width="50%" valign="top">
+      <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber4" bgcolor="#EEF1FB">
+        <tr>
+          <td width="100%">
+      <p align="center"><u><b><font face="Verdana" size="2" color="#0000FF">
+      Özellikleri</font></b></u></td>
+        </tr>
+        <tr>
+          <td width="100%" align="justify"><font face="Verdana" size="2"><b>
+          Baslik</b>: Konon başlığını belirler. (String)</font></td>
+        </tr>
+        <tr>
+          <td width="100%" align="justify"><font face="Verdana" size="2"><b>
+          BaslikHizalama</b>: Kolon başlığı bilgisinin hücre içerisindeki 
+          konumu. &quot;left&quot;, &quot;center&quot;, &quot;right&quot; olabilir. (String)</font></td>
+        </tr>
+        <tr>
+          <td width="100%" align="justify"><font face="Verdana" size="2"><b>
+          Genislik</b>: O kolonun genişliği. Yüzde ya da mutlak değer olabilir. 
+          Yüzde olursa tüm kolonların toplam genişliği 100% olacak şekilde 
+          ayarlanmalıdır. Örnek: &quot;25%&quot; ya da &quot;200px&quot;. Varsayılan değeri &quot;100%&quot;. 
+          (String)</font></td>
+        </tr>
+        <tr>
+          <td width="100%" align="justify"><font face="Verdana" size="2"><b>
+          IcerikHizalama</b>: O kolondaki verilerin hücre içerisindeki konumunu 
+          belirler. &quot;left&quot;, &quot;center&quot;, &quot;right&quot;, &quot;justify&quot; değerlerini alabilir. 
+          (String)</font></td>
+        </tr>
+      </table>
+      </td>
+      <td width="50%" valign="top">
+      <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber5" bgcolor="#EEF1FB">
+        <tr>
+          <td width="100%">
+      <p align="center"><u><b><font face="Verdana" size="2" color="#0000FF">
+      Yöntemleri</font></b></u></td>
+        </tr>
+        <tr>
+          <td width="100%">
+          <p align="justify"><font size="2" face="Verdana">Bu sınıfa ait bir 
+          yöntem yok.</font></td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%" valign="top" colspan="2" bgcolor="#FF0000">
+      <p align="center"><b><font face="Verdana" color="#FFFFFF">&quot;Satirim&quot; Sınıfı</font></b></td>
+    </tr>
+    <tr>
+      <td width="100%" valign="top" colspan="2" bgcolor="#EEF1FB">
+      <p align="justify"><font face="Verdana" size="2">Bu sınıf tablodaki 
+      verileri belirler ve her satır oluşturulduktan sonra Tablom.KolonEkle 
+      yöntemiyle tabloya eklenir. Bir tabloya mutlaka Kolon Sayısı kadar hücre 
+      eklenmelidir.</font></td>
+    </tr>
+    <tr>
+      <td width="50%" valign="top">
+      <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber6">
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB">
+      <p align="center"><u><b><font face="Verdana" size="2" color="#0000FF">
+      Özellikleri</font></b></u></td>
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB" align="justify">
+          <font face="Verdana"><b><font size="2">HucreSayisi</font></b><font size="2">: 
+          Bu satırdaki hücre sayısını verir. (Sadece okunabilir, Sayısal)</font></font></td>
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB" align="justify">
+          <font face="Verdana" size="2"><b>Hucreler</b>: Satırdaki hücreleri 
+          verir. (Sadece okunabilir, Koleksiyon)</font></td>
+        </tr>
+      </table>
+      </td>
+      <td width="50%" valign="top">
+      <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber7">
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB">
+      <p align="center"><u><b><font face="Verdana" size="2" color="#0000FF">
+      Yöntemleri</font></b></u></td>
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB"><font face="Verdana"><b>
+          <font size="2">HucreEkle</font></b><font size="2">: Bu Satıra yeni bir 
+          hücre ekler. Her satırdaki hücre sayısı aynı olmalıdır. Tanımı:<br>
+          <i><font color="#008000">HucreEkle(YeniHucre as Hucrem)</font></i><br>
+          YeniHucre, Hucrem sınıfından bir nesnedir.</font></font></td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%" valign="top" colspan="2" bgcolor="#FF0000">
+      <p align="center"><b><font face="Verdana" color="#FFFFFF">&quot;Hucrem&quot; Sınıfı</font></b></td>
+    </tr>
+    <tr>
+      <td width="100%" valign="top" colspan="2" align="justify" bgcolor="#EEF1FB">
+      <font face="Verdana" size="2">Bu sınıf ile tablodaki hücreler tek tek 
+      oluşturulur ve ilgili satıra Satirim.HucreEkle yöntemiyle eklenir.</font></td>
+    </tr>
+    <tr>
+      <td width="50%" valign="top">
+      <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber8">
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB">
+      <p align="center"><u><b><font face="Verdana" size="2" color="#0000FF">
+      Özellikleri</font></b></u></td>
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB">
+          <p align="justify"><font face="Verdana" size="2"><b>Metin</b>: Hücrede 
+          gösterilecek veri. Düz metin olabileceği gibi html kodu da olabilir. 
+          Yani hücreye resim de koyabilirsiniz. (String)</font></td>
+        </tr>
+      </table>
+      </td>
+      <td width="50%" valign="top">
+      <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber9">
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB">
+      <p align="center"><u><b><font face="Verdana" size="2" color="#0000FF">
+      Yöntemleri</font></b></u></td>
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB">
+          <p align="justify"><font size="2" face="Verdana">Bu sınıfa ait bir 
+          yöntem yok.</font></td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%" valign="top" colspan="2" bgcolor="#FF0000">
+      <p align="center"><b><font face="Verdana" color="#FFFFFF">&quot;TablomBicim&quot; 
+      Sınıfı</font></b></td>
+    </tr>
+    <tr>
+      <td width="50%" valign="top">
+      <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber10">
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB">
+      <p align="center"><u><b><font face="Verdana" size="2" color="#0000FF">
+      Özellikleri</font></b></u></td>
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB" align="justify">
+          <font face="Verdana" size="2"><b>BaslikRenk</b>: Tablonun başlığının 
+          rengi. Varsayılan değeri &quot;#000000&quot;. (String)</font></td>
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB" align="justify">
+          <font face="Verdana" size="2"><b>BaslikArkaRenk</b>: Tablonun 
+          başlığının bulunduğu satırın arkaplan rengi. Varsayılan değeri 
+          &quot;#FFFFFF&quot;. (String)</font></td>
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB" align="justify">
+          <font face="Verdana" size="2"><b>BaslikFont</b>: Tablonun başlığının 
+          yazı tipi. Varsayılan değeri &quot;Comic Sans Ms&quot;. (String)</font></td>
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB" align="justify">
+          <font face="Verdana" size="2"><b>BaslikBoyut</b>: Tablonun başlığının 
+          boyutu. Varsayılan değeri &quot;20px&quot;. (String)</font></td>
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB" align="justify">
+          <font face="Verdana" size="2"><b>BaslikKalin</b>: Tablonun başlığını 
+          kalınlık durumu. True ise başlık kalın, False ise normal. Varsayılan 
+          değeri True. (Boolean)</font></td>
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB" align="justify">
+          <font face="Verdana" size="2"><b>KolonBaslikYaziRenk</b>: Kolon 
+          başlıklarının rengi. Varsayılan değeri &quot;#000000&quot;. (String)</font></td>
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB" align="justify">
+          <font face="Verdana" size="2"><b>KolonBaslikArkaRenk</b>: Kolon 
+          başlıklarının bulunduğu hücrenin arkaplan rengi. Varsayılan değeri 
+          &quot;#CCCCCC&quot;. (String)</font></td>
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB" align="justify">
+          <font face="Verdana" size="2"><b>KolonBaslikFont</b>: Kolon 
+          başlıklarının yazı tipi. Varsayılan değeri &quot;Verdana&quot;. (String)</font></td>
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB" align="justify">
+          <font face="Verdana" size="2"><b>KolonBaslikBoyut</b>: Kolon 
+          başlıklarının boyutu. Varsayılan değeri &quot;12px&quot;. (String)</font></td>
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB" align="justify">
+          <font face="Verdana" size="2"><b>KolonBaslikKalin</b>: Kolon 
+          başlıklarının kalınlık durumu. True ise kalın, False ise normal. 
+          Varsayılan değeri True. (Boolean)</font></td>
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB" align="justify">
+          <font face="Verdana" size="2"><b>SatirArkaRenk1</b>: Satırların 
+          arkaplan renkleri iki çeşit olur ve sırayla oluşturulurlar. Bu 
+          birincisi. Varsayılan değeri &quot;EEEEEE&quot;. (String)</font></td>
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB" align="justify">
+          <font face="Verdana" size="2"><b>SatirYaziRenk1</b>: Değişken satır 
+          yazı renklerinin birincisi. Varsayılan değeri &quot;#000000&quot;. (String)</font></td>
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB" align="justify">
+          <font face="Verdana" size="2"><b>SatirArkaRenk2</b>: Satırlar için 
+          ikincil arkaplan rengi. SatirArkaRenk1 ile aynı olursa tüm satırların 
+          arkaplan rengi aynı olmuş olur. Varsayılan değeri &quot;#DDDDDD&quot;. (String)</font></td>
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB" align="justify">
+          <font face="Verdana" size="2"><b>SatirYaziRenk2</b>: Satırlar için 
+          alternatif yazı rengi. Varsayılan değeri &quot;#000000&quot;. (String)</font></td>
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB" align="justify">
+          <font face="Verdana" size="2"><b>Genislik</b>: Tablonun genişliği. 
+          Yüzde ya da mutlak değer olabilir. Örnek: &quot;%90&quot; ya da &quot;700px&quot;. 
+          Varsayılan değeri:</font></td>
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB" align="justify">
+          <font face="Verdana" size="2"><b>Hizalama</b>: Tablonun sayfa 
+          içerisindeki hizalaması. &quot;left&quot;, &quot;right&quot; veya &quot;center&quot; değerlerini 
+          alabilir. Varsayılan değeri &quot;center&quot;.</font></td>
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB" align="justify">
+          <font face="Verdana" size="2"><b>TabloArkaRenk</b>: Tablonun arkaplan 
+          rengi. Varsayılan değeri &quot;#CCCCCC&quot;. (String)</font></td>
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB" align="justify">
+          <font face="Verdana" size="2"><b>YaziFont</b>: Tablodaki verilerin 
+          yazı tipi. Varsayılan değeri &quot;Verdana&quot;. (String)</font></td>
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB" align="justify">
+          <font face="Verdana" size="2"><b>YaziBoyut</b>: Tablodaki verilerin 
+          yazı boyutu. Varsayılan değeri &quot;12px&quot;. (String)</font></td>
+        </tr>
+      </table>
+      </td>
+      <td width="50%" valign="top">
+      <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber11">
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB">
+      <p align="center"><u><b><font face="Verdana" size="2" color="#0000FF">
+      Yöntemleri</font></b></u></td>
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#EEF1FB">
+          <p align="justify"><font size="2" face="Verdana">Bu sınıfa ait bir 
+          yöntem yok.</font></td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </center>
+</div>
+<p align="justify" style="text-indent: 30"><b>
+<font face="Verdana" color="#0000FF"><u>3. Kullanımı</u>;</font></b></p>
+
+<p align="justify" style="text-indent: 30"><font face="Verdana" size="2">
+Genel olarak iki çeşit kullanımı vardır. Tabloyu veritabanından alıp satır ve 
+kolonları kendiniz oluşturabilirsiniz ya da direk olarak veritabanından 
+aldığınız verileri doldurduğunuz DataTable nesnesini Tablom sınıfına 
+bağlayabilirsiniz.</font></p>
+
+<p align="justify" style="text-indent: 30"><b>
+<font face="Verdana" size="2" color="#0000FF"><u>3.1 Satır ve kolonları 
+oluşturarak kullanmak</u>;</font></b></p>
+
+<p align="justify" style="text-indent: 30"><font face="Verdana" size="2">Bu 
+kullanımda önce veritabanından verileri alırsınız, sonra gösterilecek her kolon 
+için bir kolonum nesnesi oluşturursunuz. Daha sonra her satırın her hücresini 
+tek tek oluşturup tabloya eklersiniz. Daha sonra tablonun görünüm özelliklerini 
+de değiştirdikten sonra <font color="#008000"><i>HtmlKoduUret()</i></font> yöntemini kullanarak tabloyu 
+oluşturursunuz. Ve son olarak da <font color="#008000"><i>...Controls.Add(new 
+LiteralControl(Tablom.HtmlKodu))</i></font> şeklinde bir <font color="#008000">
+<i>PlaceHolder</i></font>'a ya da doğrudan 
+sayfaya ekleyebilirsiniz. Şimdi adım adım birlikte bir tablo oluşturuyoruz. 
+Sonuçta oluşturduğumuz tablo şöyle olacak:</font></p>
+
+<table border="1" cellpadding="15" cellspacing="0" style="border-collapse: collapse" width="100%" id="AutoNumber13" bgcolor="#FFFFFF">
+  <tr>
+    <td width="100%">
+    <p align="center"><img border="0" src="tablom.gif" width="602" height="153"></td>
+  </tr>
+</table>
+
+<p align="justify" style="text-indent: 30"><b>
+<font face="Verdana" size="2" color="#0000FF"><u>3.1.1 
+Veritabanından verileri almak</u>;</font></b></p>
+
+<p align="justify" style="text-indent: 30"><font face="Verdana" size="2">Tablo 
+oluştururken verileri veritabanından almak daha avantajlıdır. Bu şekilde basit 
+birkaç döngü kurarak tüm verileri tabloya ekleyebilirsiniz. Aşağıdaki gibi 
+veritabanına bağlanıp veritabanındaki istediğiniz verileri bir DataTable 
+nesnesine aktarın:</font></p>
+
+<div align="center">
+  <center>
+  <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="80%" id="AutoNumber12" bgcolor="#EEF1FB">
+    <tr>
+      <td width="100%"><font SIZE="2" COLOR="#0000ff">
+      <font face="Lucida Console">Dim</font></font><font face="Lucida Console"><font SIZE="2"> 
+      Baglanti </font><font SIZE="2" COLOR="#0000ff">As</font><font SIZE="2">
+      </font><font SIZE="2" COLOR="#0000ff">New</font><font SIZE="2"> 
+      OleDb.OleDbConnection(&quot;Provider=Microsoft.JET.OLEDB.4.0;Data Source=&quot; &amp; 
+      Server.MapPath(&quot;db.mdb&quot;))<br>
+      </font><font SIZE="2" COLOR="#0000ff">Dim</font><font SIZE="2"> Sorgu
+      </font><font SIZE="2" COLOR="#0000ff">As</font><font SIZE="2"> </font>
+      <font SIZE="2" COLOR="#0000ff">String</font><font SIZE="2"> = &quot;SELECT 
+      Ad,Sehir,Yas FROM Kisiler&quot;<br>
+      </font><font SIZE="2" COLOR="#0000ff">Dim</font><font SIZE="2"> Komut
+      </font><font SIZE="2" COLOR="#0000ff">As</font><font SIZE="2"> </font>
+      <font SIZE="2" COLOR="#0000ff">New</font><font SIZE="2"> 
+      OleDb.OleDbCommand(Sorgu, Baglanti)<br>
+      </font><font SIZE="2" COLOR="#0000ff">Dim</font><font SIZE="2"> Adaptor
+      </font><font SIZE="2" COLOR="#0000ff">As</font><font SIZE="2"> </font>
+      <font SIZE="2" COLOR="#0000ff">New</font><font SIZE="2"> 
+      OleDb.OleDbDataAdapter(Komut)<br>
+      </font><font SIZE="2" COLOR="#0000ff">Dim</font><font SIZE="2"> vTablo
+      </font><font SIZE="2" COLOR="#0000ff">As</font><font SIZE="2"> </font>
+      <font SIZE="2" COLOR="#0000ff">New</font><font SIZE="2"> DataTable</font></font><font SIZE="2" face="Lucida Console">
+      <font color="#008000">' Veri Tablosu</font><p>
+      Adaptor.Fill(vTablo)</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p align="justify" style="text-indent: 30"><b>
+<font face="Verdana" size="2" color="#0000FF"><u>3.1.2 Tablo için gerekli 
+değişkenleri oluşturmak</u></font></b></p>
+
+<p align="justify" style="text-indent: 30"><font face="Verdana" size="2">Şimdi 
+tabloyu oluşturmak için gerekli değişkenleri tanımlıyoruz:</font></p>
+
+<div align="center">
+  <center>
+  <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="80%" id="AutoNumber14" bgcolor="#EEF1FB">
+    <tr>
+      <td width="100%"><font SIZE="2" COLOR="#0000ff">
+      <font face="Lucida Console">Dim</font></font><font face="Lucida Console"><font SIZE="2"> 
+      birTablo </font><font SIZE="2" COLOR="#0000ff">As</font><font SIZE="2">
+      </font><font SIZE="2" COLOR="#0000ff">New</font><font SIZE="2"> Tablom<br>
+      </font><font SIZE="2" COLOR="#0000ff">Dim</font><font SIZE="2"> birHucre
+      </font><font SIZE="2" COLOR="#0000ff">As</font><font SIZE="2"> Hucrem<br>
+      </font><font SIZE="2" COLOR="#0000ff">Dim</font><font SIZE="2"> birSatir
+      </font><font SIZE="2" COLOR="#0000ff">As</font><font SIZE="2"> Satirim<br>
+      </font><font SIZE="2" COLOR="#0000ff">Dim</font><font SIZE="2"> birKolon
+      </font><font SIZE="2" COLOR="#0000ff">As</font><font SIZE="2"> Kolonum<br>
+      </font><font SIZE="2" COLOR="#0000ff">Dim</font><font SIZE="2"> birBicim
+      </font><font SIZE="2" COLOR="#0000ff">As</font><font SIZE="2"> </font>
+      <font SIZE="2" COLOR="#0000ff">New</font><font SIZE="2"> TablomBicim</font></font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p align="justify" style="text-indent: 30"><b>
+<font face="Verdana" size="2" color="#0000FF"><u>3.1.3 Tablonun kolonlarını 
+oluşturmak</u>;</font></b></p>
+
+<p align="justify" style="text-indent: 30"><font face="Verdana" size="2">Şimdi 
+tablomuzdaki kolonları tek tek oluşturalım. Burada Ad-Soyad, Şehir ve Yaş adlı 3 
+kolon olacak:</font></p>
+
+<div align="center">
+  <center>
+  <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="80%" id="AutoNumber15" bgcolor="#EEF1FB">
+    <tr>
+      <td width="100%"><font SIZE="2"><font face="Lucida Console">birKolon =
+      </font></font><font face="Lucida Console"><font SIZE="2" COLOR="#0000ff">
+      New</font><font SIZE="2"> Kolonum<br>
+      birKolon.Baslik = &quot;Adı Soyadı&quot;<br>
+      birKolon.Genislik = &quot;%40&quot;<br>
+      birTablo.KolonEkle(birKolon)<br>
+      <br>
+      birKolon = </font><font SIZE="2" COLOR="#0000ff">New</font><font SIZE="2"> 
+      Kolonum<br>
+      birKolon.Baslik = &quot;Şehir&quot;<br>
+      birKolon.Genislik = &quot;%40&quot;<br>
+      birTablo.KolonEkle(birKolon)<br>
+      <br>
+      birKolon = </font><font SIZE="2" COLOR="#0000ff">New</font></font><font SIZE="2"><font face="Lucida Console"> 
+      Kolonum<br>
+      birKolon.Baslik = &quot;Yaş&quot;<br>
+      birKolon.Genislik = &quot;%20&quot;<br>
+      birKolon.icerikHizalama = &quot;center&quot;<br>
+      birTablo.KolonEkle(birKolon)</font></font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p align="justify" style="text-indent: 30"><font face="Verdana" size="2">
+Gördüğünüz gibi 3 adet kolon kolayca oluşturulup tabloya ekleniyor.</font></p>
+
+<p align="justify" style="text-indent: 30"><b>
+<font face="Verdana" size="2" color="#0000FF"><u>3.1.4 
+Tablonun satırlarını oluşturmak</u>;</font></b></p>
+
+<p align="justify" style="text-indent: 30"><font face="Verdana" size="2">Şimdi 
+asıl önemli olan kısma, tablonun satırlarını oluşturmaya, yani verileri tabloya 
+yazmaya geldik. Bunu da DataTable nesnesinin satırlarını kullanarak kolaylıkla 
+yapıyoruz:</font></p>
+
+<div align="center">
+  <center>
+  <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="80%" id="AutoNumber16" bgcolor="#EEF1FB">
+    <tr>
+      <td width="100%"><font SIZE="2" COLOR="#0000ff">
+      <font face="Lucida Console">Dim</font></font><font face="Lucida Console"><font SIZE="2"> 
+      Satir </font><font SIZE="2" COLOR="#0000ff">As</font><font SIZE="2"> 
+      DataRow </font><font SIZE="2" COLOR="#008000">'Geçici Datarow nesnesi<br>
+      <br>
+      </font><font SIZE="2" COLOR="#0000ff">For</font><font SIZE="2"> </font>
+      <font SIZE="2" COLOR="#0000ff">Each</font><font SIZE="2"> Satir </font>
+      <font SIZE="2" COLOR="#0000ff">In</font><font SIZE="2"> vTablo.Rows<br>
+&nbsp;birSatir = </font><font SIZE="2" COLOR="#0000ff">New</font><font SIZE="2"> 
+      Satirim<br>
+&nbsp;birHucre = </font><font SIZE="2" COLOR="#0000ff">New</font><font SIZE="2"> 
+      Hucrem<br>
+&nbsp;birHucre.Metin = Satir(&quot;Ad&quot;)<br>
+&nbsp;birSatir.HucreEkle(birHucre)<br>
+&nbsp;birHucre = </font><font SIZE="2" COLOR="#0000ff">New</font><font SIZE="2"> 
+      Hucrem<br>
+&nbsp;birHucre.Metin = Satir(&quot;Sehir&quot;)<br>
+&nbsp;birSatir.HucreEkle(birHucre)<br>
+&nbsp;birHucre = </font><font SIZE="2" COLOR="#0000ff">New</font><font SIZE="2"> 
+      Hucrem<br>
+&nbsp;birHucre.Metin = Satir(&quot;Yas&quot;)<br>
+&nbsp;birSatir.HucreEkle(birHucre)<br>
+&nbsp;birTablo.SatirEkle(birSatir) </font><font SIZE="2" COLOR="#008000">'satır 
+      ekleniyor<br>
+      </font></font><font SIZE="2" COLOR="#0000ff"><font face="Lucida Console">
+      Next</font></font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p align="justify" style="text-indent: 30"><font face="Verdana" size="2">
+Gördüğünüz gibi her hücre tek tek oluşturulup satıra ekleniyor, en son da satır 
+tabloya ekleniyor. Bu işlem vTablo nesnesinin her satırı için yapılıyor.</font></p>
+
+<p align="justify" style="text-indent: 30"><b><u>
+<font face="Verdana" size="2" color="#0000FF">3.1.5 Tablonun görünüm 
+özelliklerini ayarlamak</font></u><font face="Verdana" size="2" color="#0000FF">;</font></b></p>
+
+<p align="justify" style="text-indent: 30"><font face="Verdana" size="2">Hiç 
+görünüm özelliği ayarlamadan da tablo yapılabilir ama tablolarınızı görünüm 
+olarak özelleştirmek ve güzel renkler kullanmak isterseniz bu özellikleri 
+kullanabilirsiniz. Tablonun bir özelliğini değiştirmenin iki yöntemi var. 
+Birincisi doğrudan Tablom nesnesinin Bicim özelliğinden şu şekilde yapılabilir:</font></p>
+
+<div align="center">
+  <center>
+  <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="80%" id="AutoNumber17" bgcolor="#EEF1FB">
+    <tr>
+      <td width="100%"><font SIZE="2"><font face="Lucida Console">
+      birTablo.Bicim.Hizalama = &quot;left&quot; </font></font>
+      <font SIZE="2" COLOR="#008000"><font face="Lucida Console">' Tablo sola 
+      hizalanıyor</font></font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p align="justify" style="text-indent: 30"><font face="Verdana" size="2">Ya da 
+bir TablomBicim nesnesi oluşturulup bu nesnede gerekli değişiklikler yapıldıktan 
+sonra Tablo'nun Bicim nesnesine atanabilir:</font></p>
+
+<div align="center">
+  <center>
+  <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="80%" id="AutoNumber18" bgcolor="#EEF1FB">
+    <tr>
+      <td width="100%"><font SIZE="2" COLOR="#0000ff">
+      <font face="Lucida Console">Dim</font></font><font face="Lucida Console"><font SIZE="2"> 
+      birBicim </font><font SIZE="2" COLOR="#0000ff">As</font><font SIZE="2">
+      </font><font SIZE="2" COLOR="#0000ff">New</font><font SIZE="2"> 
+      TablomBicim</font></font><p><font SIZE="2" face="Lucida Console">
+      birBicim.Genislik = &quot;60%&quot;<br>
+      birBicim.BaslikArkaRenk = &quot;#FF0000&quot;<br>
+      birBicim.BaslikRenk = &quot;#FFFFFF&quot;<br>
+      birBicim.BaslikBoyut = &quot;15px&quot;<br>
+      birBicim.SatirArkaRenk1 = &quot;#DDDDDD&quot;<br>
+      birBicim.SatirArkaRenk2 = &quot;#BBBBBB&quot;<br>
+      birBicim.TabloArkaRenk = &quot;#000000&quot;<br>
+      birBicim.KolonBaslikArkaRenk = &quot;#555555&quot;<br>
+      birBicim.KolonBaslikYaziRenk = &quot;#FFFFFF&quot;</font></p>
+      <p><font SIZE="2" face="Lucida Console">birTablo.Bicim = birBicim</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p align="justify" style="text-indent: 30"><font face="Verdana" size="2">
+Hangisini uygulayacağınız size kalmış ama ikinci yöntem daha kullanışlıdır. 
+Örneğin birden çok tablonuz varsa ve her tablonun görünümü aynı olacaksa bir 
+tane TablomBicim bicimi oluşturup, değişiklikleri bu nesne üzerinde yapabilir ve 
+tüm tabloların Bicim özelliğini bu nesneye eşitleyebilirsiniz.</font></p>
+
+<p align="justify" style="text-indent: 30"><b>
+<font face="Verdana" size="2" color="#0000FF"><u>3.1.6 Tabloyu sayfaya eklemek</u>;</font></b></p>
+
+<p align="justify" style="text-indent: 30"><font face="Verdana" size="2">Tabloyu 
+sayfaya eklemeden önce Başlığını belirleyelim ve Html kodunu üretelim:</font></p>
+
+<div align="center">
+  <center>
+  <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="80%" id="AutoNumber19" bgcolor="#EEF1FB">
+    <tr>
+      <td width="100%"><font SIZE="2" face="Lucida Console">birTablo.Baslik = &quot;S 
+      İ T E M İ Z İ N &amp;nbsp Ü Y E L E R İ&quot;<br>
+      birTablo.HtmlKoduUret()</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p align="justify" style="text-indent: 30"><font face="Verdana" size="2">Artık 
+tabloyu sayfaya ekleyebiliriz. Bunu birkaç yoldan yapabilirsiniz. En iyi yol 
+önce asp.net sayfanızda, tablonun görünmesini istediğiniz yere
+<font color="#008000"><i>&lt;asp:PlaceHolder ID=&quot;PhTablo1&quot; 
+Runat=&quot;Server&quot;&gt;&lt;/asp:PlaceHolder&gt;</i></font> benzeri bir kod ile bir PlaceHolder 
+kontrolü eklemek ve ardından kod bölümüne</font></p>
+
+<div align="center">
+  <center>
+  <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="80%" id="AutoNumber19" bgcolor="#EEF1FB">
+    <tr>
+      <td width="100%"><font SIZE="2" face="Lucida Console"><font SIZE="2">
+      PhTablo1.Controls.Add(</font><font SIZE="2" COLOR="#0000ff">New</font><font SIZE="2"> 
+      LiteralControl(birTablo.HtmlKodu))</font></font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p align="justify" style="text-indent: 30"><font face="Verdana" size="2">kodunu 
+eklemektir. Diğer bir yöntemse sayfaya direk olarak eklemektir. Bu da şu kodla 
+yapılabilir:</font></p>
+
+<div align="center">
+  <center>
+  <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="80%" id="AutoNumber19" bgcolor="#EEF1FB">
+    <tr>
+      <td width="100%"><font SIZE="2" face="Lucida Console"><font SIZE="2">
+      Page.Controls.Add(</font><font SIZE="2" COLOR="#0000ff">New</font><font SIZE="2"> 
+      LiteralControl(birTablo.HtmlKodu))</font></font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p align="justify" style="text-indent: 30"><font face="Verdana" size="2">Artık 
+tablonuz hazır. Burada birçok özelliği kullanmadık. Tüm özellikler için 2. 
+bölüme bakabilirsiniz.</font></p>
+
+<p align="justify" style="text-indent: 30"><b>
+<font face="Verdana" size="2" color="#0000FF"><u>3.2 Doğrudan DataTable' a 
+bağlayarak kullanmak</u>;</font></b></p>
+
+<p align="justify" style="text-indent: 30"><font face="Verdana" size="2">Bu 
+şekilde kullanım çok kolaydır. Sadece bu kadar kodla tablo oluşturulabilir:</font></p>
+<div align="center">
+  <center>
+  <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="80%" id="AutoNumber19" bgcolor="#EEF1FB">
+    <tr>
+      <td width="100%"><font SIZE="2" COLOR="#008000">
+      <font face="Lucida Console">'Nesneler<br>
+      </font></font><font face="Lucida Console"><font SIZE="2" COLOR="#0000ff">
+      Dim</font><font SIZE="2"> Baglanti </font><font SIZE="2" COLOR="#0000ff">
+      As</font><font SIZE="2"> </font><font SIZE="2" COLOR="#0000ff">New</font><font SIZE="2"> 
+      OleDb.OleDbConnection(&quot;Provider=Microsoft.JET.OLEDB.4.0;Data Source=&quot; &amp; 
+      Server.MapPath(&quot;db.mdb&quot;))<br>
+      </font><font SIZE="2" COLOR="#0000ff">Dim</font><font SIZE="2"> Sorgu
+      </font><font SIZE="2" COLOR="#0000ff">As</font><font SIZE="2"> </font>
+      <font SIZE="2" COLOR="#0000ff">String</font><font SIZE="2"> = &quot;SELECT 
+      Ad,Sehir,Yas FROM Kisiler&quot;<br>
+      </font><font SIZE="2" COLOR="#0000ff">Dim</font><font SIZE="2"> Komut
+      </font><font SIZE="2" COLOR="#0000ff">As</font><font SIZE="2"> </font>
+      <font SIZE="2" COLOR="#0000ff">New</font><font SIZE="2"> 
+      OleDb.OleDbCommand(Sorgu, Baglanti)</font><font SIZE="2" COLOR="#0000ff"><br>
+      Dim</font><font SIZE="2"> Adaptor </font><font SIZE="2" COLOR="#0000ff">As</font><font SIZE="2">
+      </font><font SIZE="2" COLOR="#0000ff">New</font><font SIZE="2"> 
+      OleDb.OleDbDataAdapter(Komut)<br>
+      </font><font SIZE="2" COLOR="#0000ff">Dim</font><font SIZE="2"> vTablo
+      </font><font SIZE="2" COLOR="#0000ff">As</font><font SIZE="2"> </font>
+      <font SIZE="2" COLOR="#0000ff">New</font><font SIZE="2"> DataTable<br>
+      </font><font SIZE="2" COLOR="#0000ff">Dim</font><font SIZE="2"> birTablo
+      </font><font SIZE="2" COLOR="#0000ff">As</font><font SIZE="2"> </font>
+      <font SIZE="2" COLOR="#0000ff">New</font><font SIZE="2"> Tablom</font></font><p>
+      <font face="Lucida Console"><font SIZE="2" COLOR="#008000">' 
+      Veritabanından veriler alınıyor</font><font SIZE="2"><br>
+      Adaptor.Fill(vTablo)</font></font></p>
+      <p><font face="Lucida Console"><font SIZE="2" COLOR="#008000">'Birkaç 
+      özellik ayarlanıyor (isteğe bağlı)</font><font SIZE="2"><br>
+      birTablo.Baslik = &quot;S İ T E M İ Z İ N &amp;nbsp Ü Y E L E R İ&quot;<br>
+      birTablo.Bicim.Genislik = &quot;60%&quot;</font></font></p>
+      <p><font face="Lucida Console"><font SIZE="2" COLOR="#008000">'Tablo 
+      oluşturuluyor</font><font SIZE="2"><br>
+      birTablo.VeriTablosuAl(vTablo, </font><font SIZE="2" COLOR="#0000ff">True</font><font SIZE="2">)<br>
+      birTablo.HtmlKoduUret()</font></font></p>
+      <p><font face="Lucida Console"><font SIZE="2" COLOR="#008000">'Sayfaya 
+      ekleniyor</font><font SIZE="2"><br>
+      PhTablo1.Controls.Add(</font><font SIZE="2" COLOR="#0000ff">New</font><font SIZE="2"> 
+      LiteralControl(birTablo.HtmlKodu))</font></font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p align="justify" style="text-indent: 30"><font face="Verdana" size="2">Burada 
+önemli bir nokta var. Eğer kolon isimlerini direk olarak veritabanından almak 
+istemiyorsanız önce kolonları kendiniz (daha önceki yöntemle) oluşturmalısınız 
+ve </font><font face="Verdana"><i><font SIZE="2" color="#008000">
+birTablo.VeriTablosuAl(vTablo, False</font></i><font SIZE="2"><i><font color="#008000">)</font></i> 
+şeklinde kullanmalısınız. Buradaki <i><font color="#008000">False</font></i> 
+ifadesi ile kolonların veritabanından alınmamasını söylemiş oluyorsunuz. 
+Yukarıdaki kodun çıktısı aşağıdaki gibi oldu:</font></font></p>
+<div align="center">
+  <center>
+  <table border="1" cellpadding="15" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber20" bgcolor="#FFFFFF">
+    <tr>
+      <td width="100%">
+      <p align="center">
+      <img border="0" src="tablom2.gif" width="591" height="149"></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p align="justify" style="text-indent: 30"><b>
+<font face="Verdana" color="#0000FF"><u>4. Uyarılar</u>;</font></b></p>
+<p align="justify" style="text-indent: 30"><font face="Verdana" size="2">
+Tabloları hazırlarken dikkat etmeniz gereken hususlar var. Bunlar genel olarak 
+şöyle:</font></p>
+<ul>
+  <li>
+<p align="justify" style="text-indent: 30"><font face="Verdana" size="2">Eğer 
+kolon ve satırları kendiniz oluşturacaksanız kolon sayısını baştan belirlemeli 
+ve kolon genişliklerinin toplamının tablonun genişliği kadar olmasını 
+sağlamalısınız. Örneğin yüzde cinsinden değer veriyorsanız kolonların 
+genişlikleri toplamı her zaman %100 olmalıdır. </font></p></li>
+  <li>
+<p align="justify" style="text-indent: 30"><font face="Verdana" size="2">Her 
+satırı oluştururken o satıra ekleyeceğiniz hücrelerin sayısı da kolon sayısı 
+kadar olmalıdır. Fazla ya da eksik olursa hata oluşur.</font></p></li>
+  <li>
+<p align="justify" style="text-indent: 30"><font face="Verdana" size="2">İlk 
+önce kolonları, sonra satırları oluşturmalısınız. Eğer <i><font color="#008000">
+Tablom.VeriTablosuAl()</font></i> yöntemini kullanacaksanız ve kolonları 
+kendiniz oluşturmak istiyorsanız bunu <font color="#008000"><i>
+Tablom.VeriTablosuAl()</i></font> yönteminden önce yapmalısınız.</font></p></li>
+</ul>
+<p align="justify" style="text-indent: 30"><b>
+<font face="Verdana" color="#0000FF"><u>5. Yükleme Adresi</u>;</font></b></p>
+<p align="justify" style="text-indent: 30"><font face="Verdana" size="2">Tablom 
+sınıflarını projelerinizde kullanmak için aşağıdaki bağlantıya tıklayarak zip 
+dosyasını yükleyin ve zip dosyası içerisinden çıkan 'tablo.vb' dosyasını 
+projenize dahil edin:</font></p>
+<p align="center" style="text-indent: 30"><b><font face="Verdana" size="2">
+<a href="tablom.zip"><font color="#FF0000">yüklemek için buraya tıklayın</font></a></font></b></p>
+<p align="justify" style="text-indent: 30"><b>
+<font face="Verdana" color="#0000FF"><u>6. İletişim</u>;</font></b></p>
+<div align="center">
+  <center>
+  <table border="0" cellpadding="2" cellspacing="2" style="border-collapse: collapse" bordercolor="#111111" width="80%" id="AutoNumber21" bgcolor="#666699">
+    <tr>
+      <td width="50%" align="right" bgcolor="#EEF1FB">
+      <font face="Lucida Console" size="2">Bu projeyi hazırlayan:</font></td>
+      <td width="50%" bgcolor="#EEF1FB"><b><font face="Lucida Console" size="2">
+      Halil İbrahim Kalkan</font></b></td>
+    </tr>
+    <tr>
+      <td width="50%" align="right" bgcolor="#EEF1FB">
+      <font face="Lucida Console" size="2">E-posta adresi: </font></td>
+      <td width="50%" bgcolor="#EEF1FB"><font face="Lucida Console" size="2">
+      <a href="mailto:hi_kalkan@yahoo.com">hi_kalkan@yahoo.com</a></font></td>
+    </tr>
+    <tr>
+      <td width="50%" align="right" bgcolor="#EEF1FB">
+      <font face="Lucida Console" size="2">Web sitesi: </font></td>
+      <td width="50%" bgcolor="#EEF1FB"><font face="Lucida Console" size="2">
+      <a href="http://www.kalkan.cjb.net">http://www.kalkan.cjb.net</a></font></td>
+    </tr>
+    <tr>
+      <td width="50%" align="right" bgcolor="#EEF1FB">
+      <font face="Lucida Console" size="2">Tarih:</font></td>
+      <td width="50%" bgcolor="#EEF1FB"><font face="Lucida Console" size="2">2 
+      Ağustos 2004</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p>&nbsp;</p>
